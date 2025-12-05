@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>InHealth Christmas Carols – Sing‑Along Links</title>
+  <meta name="description" content="Sing-along lyrics links for InHealth Christmas Carols." />
+  <style>
+    :root { --bg: #0b1220; --card: #131c32; --text: #eef3ff; --muted: #b8c4e3; --accent: #9ad6ff; --link: #ffe07a; --focus: #69f0ae; }
+    @media (prefers-color-scheme: light) { :root { --bg:#f7fbff; --card:#ffffff; --text:#1c2438; --muted:#50618a; --accent:#006ad4; --link:#b35c00; --focus:#0b8; } }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: radial-gradient(1000px 600px at 10% -10%, #27406b55, transparent) var(--bg); color: var(--text); display:grid; place-items:start center; min-height:100vh; padding:24px; }
+    .wrap { width:min(860px,100%); }
+    header { text-align:center; margin-bottom:18px; }
+    h1 { margin:0 0 6px; letter-spacing:0.2px; }
+    .subtitle { color: var(--muted); margin:0 0 12px; }
+    .controls { display:grid; gap:10px; grid-template-columns:1fr auto; align-items:center; margin:14px 0 18px; }
+    input[type="search"] { background: var(--card); border:1px solid #3a4a72; color: var(--text); padding:12px 14px; border-radius:10px; outline:none; }
+    input[type="search"]:focus { border-color: var(--focus); box-shadow: 0 0 0 3px #00ffb233; }
+    button, .btn { background:#234; color:var(--text); border:1px solid #3a4a72; padding:10px 14px; border-radius:10px; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:8px; }
+    button:hover, .btn:hover { border-color: var(--focus); }
+    .list { background: var(--card); border:1px solid #33456b; border-radius:14px; overflow:hidden; }
+    .item { display:grid; grid-template-columns:1fr auto; gap:10px; align-items:center; padding:14px 16px; border-bottom:1px solid #2a3d62; }
+    .item:last-child { border-bottom:0; }
+    .title { font-weight:600; }
+    .meta { color: var(--muted); font-size:0.9rem; }
+    .go { color: var(--link); text-decoration:none; font-weight:600; }
+    .go:focus { outline:3px solid var(--focus); outline-offset:3px; border-radius:8px; }
+    footer { color: var(--muted); text-align:center; margin:18px 0 8px; font-size:0.9rem; }
+    .qr { display:block; margin:14px auto 0; max-width:200px; }
+    .qr-note { color: var(--muted); font-size:0.9rem; margin-top:6px; }
+    @media print { .controls { display:none; } body { background:white; } .qr { display:block; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>🎶 InHealth Christmas Carols</h1>
+      <p class="subtitle">Tap a song to open the lyrics</p>
+      <img class="qr" src="qr.png" alt="QR code to this page" />
+      <div class="qr-note">Scan to open on your phone</div>
+    </header>
+
+    <div class="controls" role="region" aria-label="Controls">
+      <input id="search" type="search" placeholder="Search songs…" aria-label="Search songs" />
+      <button id="sort">Sort A–Z</button>
+    </div>
+
+    <div id="list" class="list" role="list">
+      <div class="item" role="listitem" data-title="Hark! The Herald Angels Sing" data-key="hark">
+        <div>
+          <div class="title">Hark! The Herald Angels Sing</div>
+          <div class="meta">Public domain • congregational</div>
+        </div>
+        <a class="go" target="_blank" rel="noopener" href="https://hymnary.org/text/hark_the_herald_angels_sing_glory_to_the">Open lyrics ↗</a>
+      </div>
+
+      <div class="item" role="listitem" data-title="Silent Night" data-key="silentnight">
+        <div>
+          <div class="title">Silent Night</div>
+          <div class="meta">Public domain • gentle</div>
+        </div>
+        <a class="go" target="_blank" rel="noopener" href="https://hymnary.org/text/silent_night_holy_night">Open lyrics ↗</a>
+      </div>
+
+      <div class="item" role="listitem" data-title="Away in a Manger" data-key="away">
+        <div>
+          <div class="title">Away in a Manger</div>
+          <div class="meta">Public domain • carol</div>
+        </div>
+        <a class="go" target="_blank" rel="noopener" href="https://hymnary.org/text/away_in_a_manger_no_crib_for_a_bed">Open lyrics ↗</a>
+      </div>
+
+      <div class="item" role="listitem" data-title="Calypso Carol (See Him Lying…)" data-key="calypso">
+        <div>
+          <div class="title">Calypso Carol (See Him Lying on a Bed of Straw)</div>
+          <div class="meta">Copyrighted • use your licensed link or your own Google Doc</div>
+        </div>
+        <a class="go" target="_blank" rel="noopener" href="YOUR_LYRICS_LINK_FOR_CALYPSO_CAROL">Open lyrics ↗</a>
+      </div>
+
+      <div class="item" role="listitem" data-title="Christmas Hallelujah" data-key="hallelujah">
+        <div>
+          <div class="title">Christmas Hallelujah</div>
+          <div class="meta">Copyrighted adaptation • use your licensed link or your own Google Doc</div>
+        </div>
+        <a class="go" target="_blank" rel="noopener" href="YOUR_LYRICS_LINK_FOR_CHRISTMAS_HALLELUJAH">Open lyrics ↗</a>
+      </div>
+    </div>
+
+    <footer>Tip: add this page to your Home Screen for quick access. • © You</footer>
+  </div>
+
+  <script>
+    const search = document.querySelector('#search');
+    const sortBtn = document.querySelector('#sort');
+    const items = Array.from(document.querySelectorAll('.item'));
+    let aToZ = true;
+
+    search.addEventListener('input', () => {
+      const q = search.value.trim().toLowerCase();
+      items.forEach(li => {
+        const title = li.dataset.title.toLowerCase();
+        li.style.display = title.includes(q) ? '' : 'none';
+      });
+    });
+
+    sortBtn.addEventListener('click', () => {
+      aToZ = !aToZ;
+      const list = document.getElementById('list');
+      const sorted = items.slice().sort((a, b) => {
+        const ta = a.dataset.title.toLowerCase();
+        const tb = b.dataset.title.toLowerCase();
+        return aToZ ? ta.localeCompare(tb) : tb.localeCompare(ta);
+      });
+      sorted.forEach(el => list.appendChild(el));
+      sortBtn.textContent = aToZ ? 'Sort A–Z' : 'Sort Z–A';
+    });
+  </script>
+</body>
+</html>
