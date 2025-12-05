@@ -14,9 +14,10 @@
     h1 { margin: 0; font-size: clamp(1.4rem, 2.8vw, 2rem); }
     .subtitle { margin: 6px 0 0; color: var(--muted); font-size: 0.95rem; }
     .wrap { width: min(900px, 92%); margin: 16px auto 40px; }
-    .controls { display: flex; gap: 10px; align-items: center; justify-content: center; margin: 12px 0; }
+    .controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center; margin: 12px 0; }
     button { background:#234; color:var(--text); border:1px solid #3a4a72; padding:10px 14px; border-radius:10px; cursor:pointer; }
     button:focus { outline: 3px solid var(--focus); outline-offset: 3px; }
+    .back-link { background:#234; color:var(--link); border:1px solid #3a4a72; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; }
     main { background: var(--card); border: 1px solid #33456b; border-radius: 14px; padding: 18px; }
     section { margin: 16px 0; }
     h2 { margin: 0 0 8px; font-size: 1.2rem; }
@@ -28,11 +29,11 @@
 <body>
   <header id="top">
     <h1>Hark! The Herald Angels Sing</h1>
-    <p class="subtitle">Lyrics • mobile-friendly • public domain</p>
+    <p class="subtitle">InHealth Christmas Carols</p>
     <div class="controls">
       <button id="smaller" aria-label="Decrease font size">A−</button>
       <button id="larger" aria-label="Increase font size">A+</button>
-      <a class="top" href="#verse1" style="margin-left:8px">Jump to Verse 1 ↓</a>
+      <a class="back-link" href="https://terrypothin77.github.io/inhealth-christmas-carols/">← Back to Main Page</a>
     </div>
   </header>
 
