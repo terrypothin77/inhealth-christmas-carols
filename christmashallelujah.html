@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Christmas Hallelujah – Lyrics (Licensed)</title>
-  <meta name="description" content="Mobile-friendly page for Christmas Hallelujah with link to licensed lyrics." />
+  <title>Silent Night – Lyrics</title>
+  <meta name="description" content="Mobile-friendly lyrics for Christmas Hallelujah." />
   <style>
     :root{ --bg:#0b1220; --card:#111a33; --text:#eef3ff; --muted:#b8c4e3; --accent:#9ad6ff; --link:#ffe07a; --focus:#69f0ae; }
     @media (prefers-color-scheme: light){ :root{ --bg:#f7fbff; --card:#ffffff; --text:#1c2438; --muted:#50618a; --accent:#006ad4; --link:#b35c00; --focus:#0b8; } }
@@ -18,14 +18,12 @@
     button { background:#234; color:var(--text); border:1px solid #3a4a72; padding:10px 14px; border-radius:10px; cursor:pointer; }
     button:focus { outline: 3px solid var(--focus); outline-offset: 3px; }
     .back-link { background:#234; color:var(--link); border:1px solid #3a4a72; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; }
-    .open-lyrics { background:#2b3d66; color:var(--link); border:1px solid #3a4a72; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; }
     main { background: var(--card); border: 1px solid #33456b; border-radius: 14px; padding: 18px; }
     section { margin: 16px 0; }
     h2 { margin: 0 0 8px; font-size: 1.2rem; }
-    .notice { background:#0f1a35; border:1px solid #2a3d62; border-radius:12px; padding:12px 14px; color: var(--muted); }
+    pre { white-space: pre-wrap; line-height: 1.55; font-size: var(--fs, 1.06rem); }
+    .top { display:inline-block; margin-top:8px; color: var(--accent); text-decoration: none; }
     footer { color: var(--muted); text-align: center; margin: 20px 0 30px; font-size: 0.9rem; }
-    input[type="url"]{ background:#0f1a35; border:1px solid #3a4a72; color: var(--text); padding:10px 12px; border-radius:10px; width:100%; }
-    .row{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
   </style>
 </head>
 <body>
@@ -33,74 +31,79 @@
     <h1>Christmas Hallelujah</h1>
     <p class="subtitle">InHealth Christmas Carols</p>
     <div class="controls">
+      <button id="smaller" aria-label="Decrease font size">A−</button>
+      <button id="larger" aria-label="Increase font size">A+</button>
       <a class="back-link" href="https://terrypothin77.github.io/inhealth-christmas-carols/">← Back to Main Page</a>
-      <a id="openLyrics" class="open-lyrics" href="#" target="_blank" rel="noopener">Open Licensed Lyrics ↗</a>
+      <a class="top" href="#verse1" style="margin-left:8px">Jump to Verse 1 ↓</a>
     </div>
   </header>
 
   <div class="wrap">
     <main>
-      <section>
-        <h2>Lyrics Notice</h2>
-        <div class="notice">
-          <p>
-            <strong>Christmas Hallelujah</strong> is an adaptation of Leonard Cohen’s <em>Hallelujah</em> and is under copyright.
-            To keep this page compliant, it links to a <em>licensed source</em> (or your own view‑only document) rather than displaying the lyrics here.
-          </p>
-          <p style="margin:10px 0 0;">If you are the site owner, set your licensed link below (stored locally in your browser only):</p>
-          <div class="row" style="margin-top:8px;">
-            <input id="lyricsUrl" type="url" placeholder="Paste your licensed lyrics URL (e.g., a view‑only Google Doc)" />
-            <button id="saveUrl">Save link</button>
-          </div>
-          <small>Tip: After saving, the “Open Licensed Lyrics” button will go to your URL.</small>
-        </div>
+      <section id="Verse 1">
+        <h2>Verse 1</h2>
+        <pre>
+I've heard about this baby boy
+Who's come to earth to bring us joy
+And I just want to sing this song to you
+It goes like this, the fourth, the fifth
+The minor fall, the major lift
+With every breath, I'm singing Hallelujah
+        </pre>
+        <a class="top" href="#top">↑ Back to top</a>
       </section>
 
-      <section>
-        <h2>About this Song</h2>
-        <p class="notice">A well-known contemporary Christmas adaptation. Use this page during your event to route singers to your licensed lyrics.</p>
+      <section id="Chorus">
+        <h2>Chorus</h2>
+        <pre>
+Hallelujah, Hallelujah
+Hallelujah, Hallelujah
+        </pre>
+        <a class="top" href="#top">↑ Back to top</a>
       </section>
+
+      <section id="Verse 2">
+        <h2>Verse 2</h2>
+        <pre>
+A couple came to Bethlehem
+Expecting child, they searched the inn
+To find a place, for You were coming soon
+There was no room for them to stay
+So in a manger filled with hay
+God's only Son was born, oh, Hallelujah        
+</pre>
+        <a class="top" href="#top">↑ Back to top</a>
+      </section>
+
+<section id="Verse 3">
+        <h2>Verse 3</h2>
+        <pre>
+The shepherds left their flocks by night
+To see this baby wrapped in light
+A host of angels led them all to You
+It was just as the angels said
+"You'll find Him in a manger bed"
+Immanuel and Savior, Hallelujah
+        </pre>
+        <a class="top" href="#top">↑ Back to top</a>
+      </section>
+
+
+
     </main>
 
     <footer>
-      © Please respect copyright. Use licensed sources or your own materials with permission.
+      InHealth Christmas Carols. • © 
     </footer>
   </div>
 
   <script>
-    // Persist a custom licensed lyrics URL in localStorage
-    const KEY = 'christmasHallelujahLyricsUrl';
-    const input = document.getElementById('lyricsUrl');
-    const saveBtn = document.getElementById('saveUrl');
-    const openBtn = document.getElementById('openLyrics');
-
-    function refreshLink(){
-      const url = localStorage.getItem(KEY) || '';
-      input.value = url;
-      if(url){
-        openBtn.href = url;
-        openBtn.setAttribute('aria-disabled', 'false');
-        openBtn.style.opacity = '1';
-      } else {
-        openBtn.href = '#';
-        openBtn.setAttribute('aria-disabled', 'true');
-        openBtn.style.opacity = '0.7';
-      }
-    }
-
-    saveBtn.addEventListener('click', () => {
-      const url = input.value.trim();
-      try {
-        if(url) new URL(url); // validate
-        localStorage.setItem(KEY, url);
-        refreshLink();
-        alert('Lyrics link saved for this browser.');
-      } catch(e){
-        alert('Please enter a valid URL (including https://)');
-      }
-    });
-
-    refreshLink();
+    // Simple font resize controls
+    let size = 1.06; // rem
+    const setSize = () => document.documentElement.style.setProperty('--fs', size + 'rem');
+    setSize();
+    document.getElementById('larger').addEventListener('click', () => { size = Math.min(size + 0.08, 1.6); setSize(); });
+    document.getElementById('smaller').addEventListener('click', () => { size = Math.max(size - 0.08, 0.8); setSize(); });
   </script>
 </body>
 </html>
