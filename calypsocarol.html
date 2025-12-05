@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calypso Carol – Lyrics (Licensed)</title>
+  <meta name="description" content="Mobile-friendly page for Calypso Carol with link to licensed lyrics." />
+  <style>
+    :root{ --bg:#0b1220; --card:#111a33; --text:#eef3ff; --muted:#b8c4e3; --accent:#9ad6ff; --link:#ffe07a; --focus:#69f0ae; }
+    @media (prefers-color-scheme: light){ :root{ --bg:#f7fbff; --card:#ffffff; --text:#1c2438; --muted:#50618a; --accent:#006ad4; --link:#b35c00; --focus:#0b8; } }
+    html, body { height: 100%; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: var(--bg); color: var(--text); }
+    header { position: sticky; top: 0; z-index: 10; background: var(--card); border-bottom: 1px solid #33456b; padding: 16px; text-align: center; }
+    h1 { margin: 0; font-size: clamp(1.4rem, 2.8vw, 2rem); }
+    .subtitle { margin: 6px 0 0; color: var(--muted); font-size: 0.95rem; }
+    .wrap { width: min(900px, 92%); margin: 16px auto 40px; }
+    .controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center; margin: 12px 0; }
+    button { background:#234; color:var(--text); border:1px solid #3a4a72; padding:10px 14px; border-radius:10px; cursor:pointer; }
+    button:focus { outline: 3px solid var(--focus); outline-offset: 3px; }
+    .back-link { background:#234; color:var(--link); border:1px solid #3a4a72; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; }
+    .open-lyrics { background:#2b3d66; color:var(--link); border:1px solid #3a4a72; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; }
+    main { background: var(--card); border: 1px solid #33456b; border-radius: 14px; padding: 18px; }
+    section { margin: 16px 0; }
+    h2 { margin: 0 0 8px; font-size: 1.2rem; }
+    .notice { background:#0f1a35; border:1px solid #2a3d62; border-radius:12px; padding:12px 14px; color: var(--muted); }
+    footer { color: var(--muted); text-align: center; margin: 20px 0 30px; font-size: 0.9rem; }
+    input[type="url"]{ background:#0f1a35; border:1px solid #3a4a72; color: var(--text); padding:10px 12px; border-radius:10px; width:100%; }
+    .row{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  </style>
+</head>
+<body>
+  <header id="top">
+    <h1>Calypso Carol (See Him Lying on a Bed of Straw)</h1>
+    <p class="subtitle">InHealth Christmas Carols</p>
+    <div class="controls">
+      <a class="back-link" href="https://terrypothin77.github.io/inhealth-christmas-carols/">← Back to Main Page</a>
+      <a id="openLyrics" class="open-lyrics" href="#" target="_blank" rel="noopener">Open Licensed Lyrics ↗</a>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <main>
+      <section>
+        <h2>Lyrics Notice</h2>
+        <div class="notice">
+          <p>
+            <strong>Calypso Carol</strong> (Michael Perry, 1969) is under copyright. To stay compliant,
+            this page links to a <em>licensed source</em> (or your own view‑only document) rather than displaying the full text here.
+          </p>
+          <p style="margin:10px 0 0;">If you are the site owner, you can set your own licensed link below (stored locally in your browser only):</p>
+          <div class="row" style="margin-top:8px;">
+            <input id="lyricsUrl" type="url" placeholder="Paste your licensed lyrics URL (e.g., a view‑only Google Doc)" />
+            <button id="saveUrl">Save link</button>
+          </div>
+          <small>Tip: After saving, the “Open Licensed Lyrics” button will go to your URL.</small>
+        </div>
+      </section>
+
+      <section>
+        <h2>About this Song</h2>
+        <p class="notice">A lively Christmas carol often known by its opening line “See him lying on a bed of straw.” Use this page during your event to route singers to your licensed lyrics.</p>
+      </section>
+    </main>
+
+    <footer>
+      © Please respect copyright. Use licensed sources or your own materials with permission.
+    </footer>
+  </div>
+
+  <script>
+    // Persist a custom licensed lyrics URL in localStorage
+    const KEY = 'calypsoLyricsUrl';
+    const input = document.getElementById('lyricsUrl');
+    const saveBtn = document.getElementById('saveUrl');
+    const openBtn = document.getElementById('openLyrics');
+
+    function refreshLink(){
+      const url = localStorage.getItem(KEY) || '';
+      input.value = url;
+      if(url){
+        openBtn.href = url;
+        openBtn.setAttribute('aria-disabled', 'false');
+        openBtn.style.opacity = '1';
+      } else {
+        openBtn.href = '#';
+        openBtn.setAttribute('aria-disabled', 'true');
+        openBtn.style.opacity = '0.7';
+      }
+    }
+
+    saveBtn.addEventListener('click', () => {
+      const url = input.value.trim();
+      try {
+        if(url) new URL(url); // validate
+        localStorage.setItem(KEY, url);
+        refreshLink();
+        alert('Lyrics link saved for this browser.');
+      } catch(e){
+        alert('Please enter a valid URL (including https://)');
+      }
+    });
+
+    refreshLink();
+  </script>
+</body>
+</html>
